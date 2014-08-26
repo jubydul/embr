@@ -15,6 +15,7 @@
         <ul class="nav">
           <li>{{#link-to 'posts'}}Posts{{/link-to}}</li>
           <li>{{#link-to 'about'}}About{{/link-to}}</li>
+          <li>{{#link-to 'contact'}}Contact{{/link-to}}</li>
         </ul>
       </div>
     </div>
@@ -77,11 +78,19 @@
     <p>{{textarea value=body}}</p>
   </script>
 
-
   <script type="text/x-handlebars" id="about">
   <p>My name is Jubydul. I helped create <a href="http://www.emberjs.com/">Ember.js</a>, a JavaScript framework that brings sanity to the web.</p>
     <p>In October of 2011, I co-founded <a href="http://www.tilde.io">Tilde</a> with Yehuda Katz, Leah Silber and Carl Lerche.</p>
     <p>In my spare time I run a cash-for-beer exchange program at many local San Francisco dive bars.</p>
+  </script>
+
+  <script type="text/x-handlebars" id="contact">
+    <p>Contact us on the following address:</p>
+    <p>
+        <address>House#1234, Flat#1-ABC,<br/>
+        Karnafuli Street,<br/>
+        Dhaka, Bangladesh</address>
+    </p>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>

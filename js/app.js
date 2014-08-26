@@ -1,11 +1,11 @@
 App = Ember.Application.create({});
 
 App.Router.map(function(){
-	this.resource('about');
 	this.resource('posts', function(){
 		this.resource('post', { path: ':post_id' });
 	});
-
+	this.resource('about');
+	this. resource('contact');
 })
 
 App.PostsRoute = Ember.Route.extend({
@@ -27,6 +27,12 @@ App.PostRoute = Ember.Route.extend({
 			data.post.body = data.post.content;
 			return data.post;
 		});
+	}
+});
+
+App.CommentRoute = Ember.Route.extend({
+	model: function(params) {
+		return comments.findBy('post_id', params.post_id);
 	}
 });
 
@@ -68,4 +74,19 @@ App.PostController = Ember.ObjectController.extend({
 	date: new Date('08-25-2014'),
 	excerpt: "My [appearance on the Ruby Rogues podcast](http://rubyrogues.com/056-rr-david-heinemeier-hansson/) recently came up for discussion again on the private Parley mailing list.",
 	body: "A long list of topics were raised and I took a time to ramble at large about all of them at once. Apologies for not taking the time to be more succinct, but at least each topic has a header so you can skip stuff you don't care about.\n\n### Maintainability\n\nIt's simply not true to say that I don't care about maintainability. I still work on the oldest Rails app in the world."
-}]*/
+}];*/
+
+/*var comments = [{
+		post_id: "102",
+		avatar: "avatar.png",
+		commenter: "Jubydul",
+		date: "12-12-2014",
+		comment: "Good Job Bro!"
+	},
+	{
+		post_id: "104",
+		avatar: "avatar.png",
+		commenter: "Jubydul",
+		date: "12-12-2014",
+		comment: "Nice post! Carry on bro. Can you please help me posting about BackbonJS."
+}];*/
